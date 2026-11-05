@@ -1,0 +1,74 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = mod_version
+group = mod_group_id
+base { archivesName = 'randomizefilters-terrain-slabs-fix' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+// A separate, development-only test mod; never included in the release JAR.
+sourceSets {
+    smokeTest {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.runtimeClasspath
+    }
+}
+
+neoForge {
+    version = project.neo_version
+    runs {
+        configureEach {
+            if (project.hasProperty('mixinDebugExport')) {
+                systemProperty 'mixin.debug.export', 'true'
+            }
+        }
+        client { client() }
+        server {
+            server()
+            programArgument '--nogui'
+            if (project.hasProperty('smokeTest')) {
+                gameDirectory = project.file('run-smoketest')
+                programArguments.addAll '--port', '0'
+            }
+        }
+    }
+    mods {
+        "${mod_id}" { sourceSet(sourceSets.main) }
+        if (project.hasProperty('smokeTest')) {
+            'terrain_slabs_fix_smoketest' { sourceSet(sourceSets.smokeTest) }
+        }
+    }
+}
+
+// Local third-party JARs are for development only; never bundled in this mod.
+configurations {
+    localRuntime
+    runtimeClasspath.extendsFrom localRuntime
+}
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    localRuntime fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    def properties = [
+        mod_id: mod_id,
+        mod_name: mod_name,
+        mod_version: mod_version,
+        neo_version: neo_version
+    ]
+    inputs.properties(properties)
+    filesMatching('META-INF/neoforge.mods.toml') { expand(properties) }
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+
+tasks.named('jar', Jar).configure {
+    from('LICENSE')
+    from('TEMPLATE_LICENSE.txt')
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}

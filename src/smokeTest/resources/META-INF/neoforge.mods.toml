@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+[[mods]]
+modId="terrain_slabs_fix_smoketest"
+version="1"
+displayName="Terrain Slabs Fix Integration Tests"
