@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+
+- Move Java packages and the Gradle group to `io.github.yuutaro.randomizefiltersterrainslabsfix`.
+- No changes to the mod ID, dependencies, or gameplay behavior.
+
 ## 1.0.0
 
 - Initial release for Minecraft 1.21.1 / NeoForge.

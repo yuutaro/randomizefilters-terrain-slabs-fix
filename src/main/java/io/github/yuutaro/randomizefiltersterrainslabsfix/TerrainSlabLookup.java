@@ -1,4 +1,4 @@
-package dev.yuutaro.randomizefiltersterrainslabsfix;
+package io.github.yuutaro.randomizefiltersterrainslabsfix;
 
 import net.countered.terrainslabs.block.ModSlabsMap;
 import net.minecraft.world.level.block.Block;

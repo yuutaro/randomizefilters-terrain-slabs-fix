@@ -1,4 +1,4 @@
-package dev.yuutaro.randomizefiltersterrainslabsfix;
+package io.github.yuutaro.randomizefiltersterrainslabsfix;
 
 import net.neoforged.fml.common.Mod;
 

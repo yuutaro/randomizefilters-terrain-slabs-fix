@@ -1,6 +1,6 @@
-package dev.yuutaro.randomizefiltersterrainslabsfix.mixin;
+package io.github.yuutaro.randomizefiltersterrainslabsfix.mixin;
 
-import dev.yuutaro.randomizefiltersterrainslabsfix.TerrainSlabLookup;
+import io.github.yuutaro.randomizefiltersterrainslabsfix.TerrainSlabLookup;
 import net.minecraft.world.level.block.Block;
 import org.spongepowered.asm.mixin.Dynamic;
 import org.spongepowered.asm.mixin.Mixin;

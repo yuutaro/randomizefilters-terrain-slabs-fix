@@ -1,4 +1,4 @@
-package dev.yuutaro.randomizefiltersterrainslabsfix.smoketest;
+package io.github.yuutaro.randomizefiltersterrainslabsfix.smoketest;
 
 import com.createrandomizefilters.component.*;
 import com.createrandomizefilters.item.*;
@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.simibubi.create.content.contraptions.actors.roller.RollerMovementBehaviour;
 import com.simibubi.create.content.contraptions.bearing.BearingContraption;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
-import dev.yuutaro.randomizefiltersterrainslabsfix.*;
+import io.github.yuutaro.randomizefiltersterrainslabsfix.*;
 import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;

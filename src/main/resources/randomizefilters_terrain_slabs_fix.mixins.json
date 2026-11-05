@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "dev.yuutaro.randomizefiltersterrainslabsfix.mixin",
+  "package": "io.github.yuutaro.randomizefiltersterrainslabsfix.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "RollerSlabLookupMixin"
